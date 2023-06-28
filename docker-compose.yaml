@@ -1,0 +1,12 @@
+version: '3.4'
+services:
+  postgres_example:
+    image: postgres:14.4
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: "example_user"
+      POSTGRES_PASSWORD: "!QAZxsw2"
+      POSTGRES_DB: "example_db"
+    volumes:
+      - ./db/library.sql:/docker-entrypoint-initdb.d/library.sql
