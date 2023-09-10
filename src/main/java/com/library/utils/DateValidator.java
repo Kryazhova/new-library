@@ -26,14 +26,14 @@ public class DateValidator {
       parsedDate = sdf.parse(date);
     } catch (Exception e) {
       throw new CustomBadRequestException(
-          new ValidationErrorResponse("1001", "Валидация не пройдена",
+          new ValidationErrorResponse("Валидация не пройдена", "1001",
               "Дата должна быть в формате yyyy-MM-dd"));
     }
 
     LocalDate currentDate = LocalDate.now();
     if (parsedDate.after(Date.from(currentDate.atStartOfDay(ZoneId.systemDefault()).toInstant()))) {
       throw new CustomBadRequestException(
-          new ValidationErrorResponse("1001", "Валидация не пройдена",
+          new ValidationErrorResponse("Валидация не пройдена","1001",
               "Дата должна быть в прошлом"));
     }
     return parsedDate;
@@ -50,7 +50,7 @@ public class DateValidator {
       return formatter.format(date);
     } catch (Exception e) {
       throw new CustomBadRequestException(
-          new ValidationErrorResponse("1006", "Валидация не пройдена",
+          new ValidationErrorResponse("Валидация не пройдена","1006",
               "Дата в базе данных должна быть в формате yyyy-MM-dd"));
     }
   }

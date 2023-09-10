@@ -23,7 +23,7 @@ public class ErrorHandlingController {
   @ResponseBody
   public ValidationErrorResponse onMethodArgumentNotValidException(
       MethodArgumentNotValidException e) {
-    return new ValidationErrorResponse("1001", "Валидация не пройдена",
+    return new ValidationErrorResponse("Валидация не пройдена","1001",
         e.getFieldError().getDefaultMessage());
   }
 

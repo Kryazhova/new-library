@@ -43,6 +43,24 @@
 
 ### Описание работы с проектом
 
+Все методы (кроме запроса токена) требуют хэдера авторизации.
+```
+curl --location 'http://localhost:8080/library/authors/2/books' \
+--header 'Authorization: Bearer ...'
+```
+В случае отсутствия токена будет получен 403 код ошибки.
+
+Запрос получения jwt-токена:
+
+```
+curl --location --request GET 'http://localhost:8080/auth/login' \
+--header 'Content-Type: application/json' \
+--data '{
+"login": "master_log",
+"password": "qweasdzxc"
+}'
+```
+
 Пример post запроса для сохранения новой книги в базе данных:
 
 ```

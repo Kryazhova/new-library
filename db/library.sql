@@ -31,6 +31,15 @@ create table book
             foreign key (author_id) references author (id)
 );
 
+create table users
+(
+    id serial
+        primary key,
+    login varchar(50) not null,
+    password varchar(50) null,
+    role varchar(50) null
+);
+
 INSERT INTO customer (id, first_name, family_name, sex, status, birth_date) VALUES (1, 'Дмитрий', 'Дмитриев', 'М', 'Free', '1995-09-21');
 INSERT INTO customer (id, first_name, family_name, sex, status, birth_date) VALUES (2, 'Марина', 'Алексеева', 'Ж', 'Married', '1991-11-21');
 INSERT INTO customer (id, first_name, family_name, sex, status, birth_date) VALUES (3, 'Евгений', 'Осев', 'М', 'Married', '1976-09-25');
@@ -51,3 +60,6 @@ INSERT INTO customer (id, first_name, family_name, sex, status, birth_date) VALU
 INSERT INTO customer (id, first_name, family_name, sex, status, birth_date) VALUES (18, 'Никита', 'Горгиев', 'Ж', 'Free', '2001-04-11');
 INSERT INTO customer (id, first_name, family_name, sex, status, birth_date) VALUES (19, 'Галина', 'Калинина', 'Ж', 'Free', '1997-08-15');
 INSERT INTO customer (id, first_name, family_name, sex, status, birth_date) VALUES (20, 'Андрей', 'Михайлов', 'М', 'Married', '1981-05-01');
+
+INSERT INTO users (id, login, password, role) VALUES (1, 'master_log', 'qweasdzxc', 'ROLE_USER');
+INSERT INTO users (id, login, password, role) VALUES (2, 'test_log', '123qweasd', 'ROLE_USER');
